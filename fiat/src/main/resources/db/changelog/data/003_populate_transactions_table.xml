@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="sviatoslav.pshtir" id="003">
+        <sql>
+            INSERT INTO `transactions` (`account_id`, `amount`, `balance_before`, `balance_after`,
+                                        `debit_credit_indicator`, `description`, `created_at`)
+            VALUES (1, 100.00, 1000.00, 1100.00, 'C', 'Repayment', '2024-01-01 12:00:00'),
+                   (1, 250.00, 1100.00, 1350.00, 'C', 'Repayment 2', '2024-01-01 13:00:00'),
+                   (1, 50.00, 1350.00, 1300.00, 'D', 'Purchase', '2024-01-01 15:00:00'),
+                   (2, 500.00, 1000.00, 1500.00, 'C', 'Repayment', '2024-01-01 12:00:00');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

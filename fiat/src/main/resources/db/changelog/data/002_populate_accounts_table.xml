@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="sviatoslav.pshtir" id="002">
+        <sql>
+            INSERT INTO `accounts` (`user_id`, `balance`, `name`, `currency`, `created_at`)
+            VALUES (1, 100.00, 'Account 1', 'UAH', '2024-01-01 12:00:00'),
+                   (1, 200.10, 'Account 2', 'USD', '2024-01-02 12:01:00'),
+                   (2, 130.70, 'Account 3', 'UAH', '2024-05-01 16:20:00'),
+                   (3, 2010.99, 'Account 4', 'UAH', '2024-01-01 22:10:40');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

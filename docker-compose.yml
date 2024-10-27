@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ap-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    ports:
+      - "8099:3306"
+    volumes:
+      - a-mysql_data:/var/lib/mysql
+    networks:
+      - my_network
+
+volumes:
+  a-mysql_data:
+
+networks:
+  my_network:
