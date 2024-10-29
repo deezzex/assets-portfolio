@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="sviatoslav.pshtir" id="002">
+        <sql>
+            INSERT INTO `wallets` (`user_id`, `balance`, `blockchain`, `address`, `token`, `created_at`)
+            VALUES (1, 600.20, 'Tron', 'x0213018hhhj312321fsdf', 'USDT', '2024-01-01 12:00:00'),
+                   (1, 3100.05, 'TON', '213x021301fsdhj3132_fsdf', 'TON', '2024-01-02 12:01:00'),
+                   (1, 112220.10, 'TON', '213x021301fsdhj3132_fsdf', 'NOT', '2024-05-01 16:20:00'),
+                   (2, 4.50, 'Bitcoin', '12_x212131_dsa30_1fsdhj3132_fsdf', 'BTC', '2024-01-01 22:10:40');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

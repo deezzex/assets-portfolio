@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="sviatoslav.pshtir" id="003">
+        <sql>
+            INSERT INTO `transactions` (`from_wallet_id`, `to_wallet_id`, `amount`, `fee`,
+                                        `hash`, `status`, `created_at`)
+            VALUES (1, null, 100.00, 1.00, '1fudsfhsdfhudsfuh', 'A', '2024-01-01 12:00:00'),
+                   (1, 2, 200.00, 10.00, '2fudsfhsdfhudsfuh', 'A', '2024-01-01 13:00:00'),
+                   (2, null, 10.00, 1.00, '3fudsfhsdfhudsfuh', 'A', '2024-01-01 15:00:00'),
+                   (null, 1, 1.00, 1.00, '4fudsfhsdfhudsfuh', 'A', '2024-01-01 12:00:00');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
