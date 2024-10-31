@@ -3,7 +3,7 @@ package com.deezzex.fiat.service;
 import com.deezzex.fiat.dto.transaction.CreateTransationDto;
 import com.deezzex.fiat.entity.Account;
 import com.deezzex.fiat.entity.Transaction;
-import com.deezzex.fiat.exception.DataNotFoundException;
+import com.deezzex.shared.exception.DataNotFoundException;
 import com.deezzex.fiat.model.DebitCreditIndicator;
 import com.deezzex.fiat.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;

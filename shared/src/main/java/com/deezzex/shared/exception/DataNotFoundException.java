@@ -1,4 +1,4 @@
-package com.deezzex.fiat.exception;
+package com.deezzex.shared.exception;
 
 public class DataNotFoundException extends GeneralApplicationException {
 

@@ -1,6 +1,6 @@
 package com.deezzex.fiat.model;
 
-import com.deezzex.fiat.exception.GeneralApplicationException;
+import com.deezzex.shared.exception.GeneralApplicationException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

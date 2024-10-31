@@ -1,4 +1,4 @@
-package com.deezzex.crypto.exception;
+package com.deezzex.shared.exception;
 
 public class GeneralApplicationException extends RuntimeException {
     public GeneralApplicationException(String message) {

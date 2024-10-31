@@ -4,7 +4,7 @@ import com.deezzex.fiat.dto.report.CreateReportDto;
 import com.deezzex.fiat.entity.Account;
 import com.deezzex.fiat.entity.Report;
 import com.deezzex.fiat.entity.Transaction;
-import com.deezzex.fiat.exception.DataNotFoundException;
+import com.deezzex.shared.exception.DataNotFoundException;
 import com.deezzex.fiat.model.DebitCreditIndicator;
 import com.deezzex.fiat.repository.ReportRepository;
 import com.deezzex.fiat.repository.TransactionRepository;

@@ -1,7 +1,7 @@
 package com.deezzex.fiat.mapper;
 
-import com.deezzex.fiat.dto.account.GetAccountDto;
 import com.deezzex.fiat.entity.Account;
+import com.deezzex.shared.dto.GetAccountDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;

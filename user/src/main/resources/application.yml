@@ -1,0 +1,31 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /user
+
+spring:
+  application:
+    name: user-service
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:8099/user
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+logging:
+  level:
+    root: INFO
+    com.deezzex.user: DEBUG
+
+banner:
+  location: classpath:banner.txt

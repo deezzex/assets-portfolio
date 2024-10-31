@@ -1,0 +1,23 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /aggregator
+
+spring:
+  application:
+    name: aggregator-service
+
+logging:
+  level:
+    root: INFO
+    com.deezzex.aggregator: DEBUG
+
+banner:
+  location: classpath:banner.txt
+
+service:
+  fiat:
+    url: http://localhost:8081/fiat
+  crypto:
+    url: http://localhost:8082/crypto
+

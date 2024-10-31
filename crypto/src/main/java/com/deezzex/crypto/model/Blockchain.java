@@ -1,6 +1,5 @@
 package com.deezzex.crypto.model;
 
-import com.deezzex.crypto.exception.GeneralApplicationException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

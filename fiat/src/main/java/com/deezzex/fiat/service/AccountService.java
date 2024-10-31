@@ -2,7 +2,7 @@ package com.deezzex.fiat.service;
 
 import com.deezzex.fiat.dto.account.CreateAccountDto;
 import com.deezzex.fiat.entity.Account;
-import com.deezzex.fiat.exception.DataNotFoundException;
+import com.deezzex.shared.exception.DataNotFoundException;
 import com.deezzex.fiat.model.Currency;
 import com.deezzex.fiat.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -24,6 +25,12 @@ public class AccountService {
         log.info("Getting account by id: {}", accountId);
 
         return accountRepository.findById(accountId).orElseThrow(() -> new DataNotFoundException("Account", accountId));
+    }
+
+    public List<Account> getAccountsByUserId(Integer userId) {
+        log.info("Getting account by userId: {}", userId);
+
+        return accountRepository.findByUserId(userId);
     }
 
     public Account createAccount(CreateAccountDto createAccountDto) {
@@ -45,4 +52,6 @@ public class AccountService {
                 .createdAt(Instant.now())
                 .build();
     }
+
+
 }

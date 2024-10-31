@@ -1,14 +1,16 @@
 package com.deezzex.fiat.ingress.controller;
 
 import com.deezzex.fiat.dto.account.CreateAccountDto;
-import com.deezzex.fiat.dto.account.GetAccountDto;
 import com.deezzex.fiat.entity.Account;
 import com.deezzex.fiat.mapper.AccountMapper;
 import com.deezzex.fiat.service.AccountService;
+import com.deezzex.shared.dto.GetAccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("accounts")
@@ -24,6 +26,15 @@ public class AccountController {
         GetAccountDto dto = accountMapper.toGetAccountDto(account);
 
         return ResponseEntity.ok(dto);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<GetAccountDto>> getAccountsByUserId(@RequestParam Integer userId) {
+        List<Account> accounts = accountService.getAccountsByUserId(userId);
+
+        List<GetAccountDto> accountDtoList = accounts.stream().map(accountMapper::toGetAccountDto).toList();
+
+        return ResponseEntity.ok(accountDtoList);
     }
 
     @PostMapping

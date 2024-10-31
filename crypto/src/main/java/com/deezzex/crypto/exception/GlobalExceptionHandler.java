@@ -1,5 +1,7 @@
 package com.deezzex.crypto.exception;
 
+import com.deezzex.shared.exception.DataNotFoundException;
+import com.deezzex.shared.exception.GeneralApplicationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.deezzex.crypto.mapper;
 
-import com.deezzex.crypto.dto.wallet.GetWalletDto;
 import com.deezzex.crypto.entity.Wallet;
+import com.deezzex.shared.dto.GetWalletDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
