@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -37,7 +38,7 @@ public class SessionService {
         return session;
     }
 
-    public Session getSession(String id) {
-        return sessionRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Session", -1));
+    public Optional<Session> getSession(String id) {
+        return sessionRepository.findById(id);
     }
 }

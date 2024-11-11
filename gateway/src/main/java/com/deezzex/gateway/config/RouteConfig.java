@@ -18,6 +18,9 @@ public class RouteConfig {
     @Value("${gateway.route.aggregator.url}")
     private String aggregatorServiceRoute;
 
+    @Value("${gateway.route.user.url}")
+    private String userServiceRoute;
+
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -27,6 +30,8 @@ public class RouteConfig {
                         .uri(cryptoServiceRoute))
                 .route("aggregator_route", r -> r.path("/aggregator/**")
                         .uri(aggregatorServiceRoute))
+                .route("user_route", r -> r.path("/user/**")
+                        .uri(userServiceRoute))
                 .build();
     }
 }

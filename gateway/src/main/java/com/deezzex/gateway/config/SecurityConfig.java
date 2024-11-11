@@ -15,12 +15,13 @@ public class SecurityConfig {
     private final UserAuthManager authorisationManager;
 
     @Bean
-    public SecurityWebFilterChain uiSecurityFilterChain(ServerHttpSecurity httpSecurity) {
+    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity httpSecurity) {
         httpSecurity
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .securityMatcher(new PathPatternParserServerWebExchangeMatcher("/**"))
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/user/authenticate").permitAll()
+                        .pathMatchers("/user/security/authenticate").permitAll()
+                        .pathMatchers("/user/users").permitAll()
                         .pathMatchers("/**")
                         .access(authorisationManager::authorise)
                         .anyExchange().authenticated());

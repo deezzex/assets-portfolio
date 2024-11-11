@@ -29,3 +29,4 @@ logging:
 
 banner:
   location: classpath:banner.txt
+

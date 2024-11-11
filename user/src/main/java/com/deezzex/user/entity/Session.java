@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @Entity
-@Table(name = "users")
+@Table(name = "sessions")
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,7 +17,6 @@ import java.time.Instant;
 public class Session {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     @ManyToOne

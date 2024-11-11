@@ -23,6 +23,6 @@ gateway:
       url: http://localhost:8082
     aggregator:
       url: http://localhost:8083
-
-
+    user:
+      url: http://localhost:8084
 

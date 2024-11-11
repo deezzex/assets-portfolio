@@ -12,6 +12,81 @@ services:
       - a-mysql_data:/var/lib/mysql
     networks:
       - my_network
+  fiat:
+    build:
+      context: ./fiat
+    image: fiat:latest
+    container_name: fiat
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:8099/fiat
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    depends_on:
+      - mysql
+    ports:
+      - "8081:8081"
+    networks:
+      - my_network
+  crypto:
+    build:
+      context: ./crypto
+    image: crypto:latest
+    container_name: crypto
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:8099/crypto
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    depends_on:
+      - mysql
+    ports:
+      - "8082:8082"
+    networks:
+      - my_network
+  aggregator:
+    build:
+      context: ./aggregator
+    image: aggregator:latest
+    container_name: aggregator
+    environment:
+      service.fiat.url: http://fiat:8081/fiat
+      service.crypto.url: http://crypto:8082/crypto
+    depends_on:
+      - mysql
+    ports:
+      - "8083:8083"
+    networks:
+      - my_network
+  user:
+    build:
+      context: ./user
+    image: user:latest
+    container_name: user
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:8099/user
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    depends_on:
+      - mysql
+    ports:
+      - "8084:8084"
+    networks:
+      - my_network
+  gateway:
+    build:
+      context: ./gateway
+    image: gateway:latest
+    container_name: gateway
+    environment:
+      gateway.route.fiat.url: http://fiat:8081/
+      gateway.route.crypto.url: http://crypto:8082/
+      gateway.route.aggregator.url: http://aggregator:8083/
+      gateway.route.user.url: http://user:8084/
+    depends_on:
+      - mysql
+    ports:
+      - "9090:9090"
+    networks:
+      - my_network
 
 volumes:
   a-mysql_data:
